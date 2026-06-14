@@ -43,7 +43,7 @@ The scripts are packaged as Docker images, and configured in the file [`docker-c
 
 Start a database with GIS extensions enabled using the image [`postgis/postgis`](https://hub.docker.com/r/postgis/postgis):
 ```bash
-docker compose -d up postgres-osm
+docker compose up -d postgres-osm
 ```
 
 The data will be stored durably in the directory `postgres`.
