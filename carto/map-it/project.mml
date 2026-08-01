@@ -834,7 +834,7 @@ Layer:
               WHEN amenity = 'place_of_worship' THEN 'place_of_worship'
               WHEN man_made IN ('mast', 'tower') THEN 'tower_' || "tower:type"
               WHEN mountain_pass = 'yes' THEN 'mountain_pass'
-              WHEN "natural" = 'peak' THEN 'peak'
+              WHEN "natural" IN ('peak', 'volcano') THEN 'peak'
             END as type,
             religion,
             ele,
@@ -895,7 +895,7 @@ Layer:
                 mountain_pass_road.road_osm_id IS NOT NULL
               ) OR
               (
-                "natural" = 'peak' AND
+                "natural" IN ('peak', 'volcano') AND
                 peak_isolation.isolation >= 2500
               )
             ) AND
