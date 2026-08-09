@@ -1,4 +1,4 @@
-FROM debian:13-slim as compilation
+FROM debian:13-slim AS compilation
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -13,7 +13,7 @@ WORKDIR /compilation
 COPY scripts/isolation.c .
 RUN gcc isolation.c -Wall -o isolation -lgdal -lm -O2
 
-FROM debian:13-slim as generation
+FROM debian:13-slim AS generation
 
 ENV DEBIAN_FRONTEND noninteractive
 

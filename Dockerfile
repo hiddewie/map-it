@@ -1,4 +1,4 @@
-FROM debian:13-slim as generation
+FROM debian:13-slim AS generation
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -19,7 +19,7 @@ COPY scripts/generate/shields.py .
 RUN chmod +x shields.py
 RUN shields.py
 
-FROM node:24-trixie-slim as build
+FROM node:24-trixie-slim AS build
 
 RUN mkdir -p /build
 WORKDIR /build
