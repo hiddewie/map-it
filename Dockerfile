@@ -1,10 +1,10 @@
-FROM debian:13-slim as generation
+FROM debian:13-slim AS generation
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN mkdir -p /generation
 WORKDIR /generation
-ENV PATH $PATH:/generation
+ENV PATH=$PATH:/generation
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 \
@@ -19,11 +19,11 @@ COPY scripts/generate/shields.py .
 RUN chmod +x shields.py
 RUN shields.py
 
-FROM node:24-trixie-slim as build
+FROM node:24-trixie-slim AS build
 
 RUN mkdir -p /build
 WORKDIR /build
-ENV PATH $PATH:/build
+ENV PATH=$PATH:/build
 
 RUN npm install -g carto
 
@@ -40,7 +40,7 @@ RUN sed -i -E "s@<!\[CDATA\[(.*)--PLACEMENTS--]]>@\1$(cat placements.xml)@g" map
 
 FROM debian:13-slim
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 LABEL maintainer="Hidde Wieringa <hidde@hiddewieringa.nl>"
 
@@ -57,9 +57,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN mkdir /map-it
 WORKDIR /map-it
-ENV PATH $PATH:/map-it
+ENV PATH=$PATH:/map-it
 
-ENV MAPNIK_CONFIGURATION mapnik.xml
+ENV MAPNIK_CONFIGURATION=mapnik.xml
 
 RUN mkdir -p style
 COPY --from=generation /generation/symbols/shields style/symbols/shields
