@@ -115,7 +115,7 @@
 @light-gray: rgb(158, 158, 158);
 @gray: rgb(120, 120, 120);
 @medium-gray: rgb(105, 105, 105);
-@dark-gray: rgb(82, 82, 82);
+@dark-gray: rgb(70, 70, 70);
 @white: rgb(255, 255, 255);
 @transparent-white: rgba(255, 255, 255, 0.8);
 @feint-green: rgb(222, 245, 198);
@@ -177,9 +177,9 @@
 @highway: @gray-red;
 @highway-border: @white;
 
-@road-shield-tertiary-label: darken(@tertiary, 60%);
-@road-shield-secondary-label: darken(@secondary, 30%);
-@road-shield-primary-label: darken(@primary, 30%);
+@road-shield-tertiary-label: @black;
+@road-shield-secondary-label: darken(@secondary, 40%);
+@road-shield-primary-label: darken(@primary, 40%);
 @road-shield-trunk-label: darken(@trunk, 30%);
 @road-shield-motorway-label: @black;
 

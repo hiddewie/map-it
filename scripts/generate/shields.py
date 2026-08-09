@@ -53,7 +53,7 @@ def main():
     }
     config['tertiary'] = {
         'fill': 'rgb(255, 255, 255)',
-        'stroke_fill': 'rgb(150, 150, 150)',
+        'stroke_fill': 'rgb(120, 120, 120)',
     }
 
     if not os.path.exists(os.path.dirname(config['global']['output_dir'])):
