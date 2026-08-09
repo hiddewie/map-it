@@ -3,7 +3,7 @@ FROM debian:13-slim
 LABEL maintainer="Hidde Wieringa <hidde@hiddewieringa.nl>"
 
 WORKDIR /map-it
-ENV PATH $PATH:/map-it
+ENV PATH=$PATH:/map-it
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-mapnik \

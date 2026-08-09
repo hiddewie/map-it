@@ -1,6 +1,6 @@
 FROM debian:13-slim AS compilation
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libgdal-dev \
@@ -15,11 +15,11 @@ RUN gcc isolation.c -Wall -o isolation -lgdal -lm -O2
 
 FROM debian:13-slim AS generation
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN mkdir -p /generation
 WORKDIR /generation
-ENV PATH $PATH:/generation
+ENV PATH=$PATH:/generation
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
@@ -39,7 +39,7 @@ FROM debian:13-slim
 
 LABEL maintainer="Hidde Wieringa <hidde@hiddewieringa.nl>"
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         ca-certificates \
@@ -65,7 +65,7 @@ RUN chmod +x /usr/lib/phyghtmap/main.py
 RUN mkdir -p /data
 RUN mkdir -p /style
 RUN mkdir -p /script
-ENV PATH $PATH:/script
+ENV PATH=$PATH:/script
 
 WORKDIR /data
 

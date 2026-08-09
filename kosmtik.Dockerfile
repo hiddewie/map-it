@@ -1,6 +1,6 @@
 FROM debian:13-slim
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 # Style dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -36,7 +36,7 @@ RUN kosmtik plugins --install kosmtik-overpass-layer \
 RUN mkdir -p /map-it
 WORKDIR /map-it
 RUN cp /tmp/.kosmtik-config.yml .kosmtik-config.yml
-ENV KOSMTIK_CONFIGPATH ".kosmtik-config.yml"
+ENV KOSMTIK_CONFIGPATH=".kosmtik-config.yml"
 
 COPY style style
 
